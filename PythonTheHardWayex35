@@ -40,7 +40,17 @@ def bear_room():
             gold_room()
         else:
             print("I got no idea what that means.")
-
+#xplanation of the while loop
+#this is an infinite loop (while True)
+#it will keep running through until it hits a break
+#when choice == taunt bear and not bear_moved (meaning not False) in line 33,
+#bear_moved changes to True
+#then the while loop will iterate again
+#except the user will not say taunt bear this time since the door is open
+#if the user does say taunt bear, the user 'dies'
+#so the user will type open door which prompts line 39
+#choice = True and True which prompts the gold_room function
+#this exits the while loop
 
 def cthulhu_room():
     print("Here you see the great evil Cthulhu.")
