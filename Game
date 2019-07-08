@@ -1,0 +1,112 @@
+from sys import exit
+from sys import argv
+script, noun, verb, adj = argv
+
+def dead(why):
+    print(why, "You died. Good job!")
+    exit(0)
+
+def start():
+    print("You are in a dark room.")
+    print("There is a door to your right and left.")
+    print("Which one do you take?")
+
+    choice = input("> ")
+
+    if choice == "left":
+        riddle_room()
+    elif choice == "right":
+        riddle_room()
+    else:
+        dead("You stumble around the room until you starve.")
+
+def riddle_room():
+    print("You see a tall man wearing a bright green suit with questions marks")
+    print("He introduces himself as the Riddler")
+    print("The Riddler: 'You have entered the place that bends your mind.'")
+    print("'Look around and you will find...'")
+    print("'There are no doors through which you leave!'")
+    print("'Nor windows to look through, only your reflection, you see!'")
+    print("'And a table to lie on as you await your misery.'")
+    print("'Tell me, now, have you found the key?'")
+    print("The Riddler laughs maniacally")
+    print("What do you do?")
+
+    choice = input("> ")
+
+    if "mirror" in choice:
+        print("You look in the mirror and see what you saw.")
+        print("You take the saw and cut the table in half.")
+        print("Two halves make a whole. You climb out the hole into another room!")
+        fiction_room()
+    else:
+        dead("The Riddler keep laughing as the room swallows you up.")
+
+def fiction_room():
+    print("You land in a bright, colorful room. A man with a silly top hat")
+    print("and a cane helps you up and introduces himself as Mr. Wonka.")
+    print("""
+    Mr. Wonka: 'Hello there! My name is Mr. Wonka. I was hoping you could help me with
+    a little problem I seem to be having with my geese.
+    You see, one of them is a golden goose. But my machine here
+    accidentally spilled golden ink over all three! Only the real
+    golden goose will produce a golden egg which I need for an experiment!
+    Can you tell me which goose, 1, 2, or 3, is the real golden goose?'
+    """)
+    dragon_tales = False
+
+    def dragon():
+        print("Mr. Wonka: 'I'm afraid you're going to have to do one more thing...'")
+        print("'The door out of this room is guarded by a dragon.'")
+        print("'You're going to have to get rid of the dragon somehow.'")
+        print("What do you do? Yell at the dragon? Pet the dragon?")
+        dragon_moved = False
+
+        while True:
+            option = input("> ")
+
+            if option == "Yell at the dragon":
+                dead("You idiot. Who yells at a dragon?!")
+            elif option == "Pet the dragon" and not dragon_moved:
+                print("The dragon moved! Type 'open door' to open the door.")
+                dragon_moved = True
+            elif option == "Pet the dragon" and dragon_moved:
+                dead("The dragon bites your hand off. Why would you pet it again?!")
+            elif option == "open door" and dragon_moved:
+                truth_room()
+            else:
+                print("...yeah, no. Do something else.")
+
+    while True:
+        number = input("> ")
+        selection = int(number)
+        import random
+        for selection in range (1,4):
+            goose = random.randint(1,4)
+        if selection == goose:
+            dragon_tales = True
+            print("You did it! You chose the right goose!")
+            print("Only one problem...")
+            dragon()
+        else:
+            print("Nope, not the golden goose. Try again!")
+
+
+def truth_room():
+    print("You find yourself in a room filled with a purple haze.")
+    print("It's hard to make out anything except an orb sitting on a table in front of you.")
+    print("A disembodied voice whispers:")
+    print("""
+    'This is the final room. Here you will receive three gifts that will foretell your future.
+    But only if you understand the gifts correctly. Are you ready?'
+    """)
+    print(f"The voice then shouts: '{noun} {verb} {adj}'")
+    print("Make a prediction based on those words.")
+    sentence = input("> ")
+    if noun and verb and adj in sentence:
+        print("Weird prediction, but the orb likes it. Congratulations! You won the game!")
+        exit(0)
+    else:
+        dead("What the hell was that?! The orb cracks open and a noxious gass chokes you to death.")
+
+start()
