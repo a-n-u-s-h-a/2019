@@ -107,6 +107,6 @@ def truth_room():
         print("Weird prediction, but the orb likes it. Congratulations! You won the game!")
         exit(0)
     else:
-        dead("What the hell was that?! The orb cracks open and a noxious gass chokes you to death.")
+        dead("What the hell was that?! The orb cracks open and a noxious gas chokes you to death.")
 
 start()
