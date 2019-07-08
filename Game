@@ -27,7 +27,7 @@ def riddle_room():
     print("'Look around and you will find...'")
     print("'There are no doors through which you leave!'")
     print("'Nor windows to look through, only your reflection, you see!'")
-    print("'And a table to lie on as you await your misery.'")
+    print("'Only a table to lie on as you await your misery.'")
     print("'Tell me, now, have you found the key?'")
     print("The Riddler laughs maniacally")
     print("What do you do?")
