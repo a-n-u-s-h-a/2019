@@ -28,3 +28,8 @@ happy_bday.sing_me_a_song()
 
 ## "Happy" is a string of 5 characters
 ## ["Happy"] is a list with the item "happy" in it
+
+#can also put lyrics in separate variable and pass that to class to use:
+# var = ["Happy birthday"]
+# happy_bday = Song(var)
+#but have to change x in class Song to var (lines 22 and 23)
