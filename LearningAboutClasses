@@ -1,0 +1,30 @@
+class Song(object):
+    def __init__(self, x):
+        self.lyrics = x
+    def sing_me_a_song(self):
+        for line in self.lyrics:
+            print(line)
+
+happy_bday = Song(["Happy birthday"]) # the list "Happy birthday" is x in
+                                      # the init function above
+#line 28:
+#init is initializing happy_bday as the class Song itself so that calling
+# happy_bday makes the program import all the stuff that's within Song,
+# like the way you import a module to use the functions inside it
+# happy_bday = Song()
+#happy_bday has been initialized as the class and holds the object "Happy birthday"
+# that object is represented by 'x' in the argument for init within Song line 22
+
+#print(happy_bday.lyrics) returns: Happy birthday
+#lyrics is a variable within the class Song
+# which is now initialized as happy_bday so to call it, you'd have to
+# make happy_bday call that variable --> happy_bday.lyrics = self.lyrics
+# which prints out x, the object within Song as defined in line 28
+
+happy_bday.sing_me_a_song()
+#happy_bday(aka the class Song) is calling on its function sing_me_a_song
+# which prints each line in happy_bday.lyrics which has been set to x
+# which has been defined as the list ["Happy birthday"] in line 28
+
+## "Happy" is a string of 5 characters
+## ["Happy"] is a list with the item "happy" in it
